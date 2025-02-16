@@ -14,16 +14,16 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-glow">Get in Touch</h2>
           <p className="text-xl text-gray-400">Ready to transform your business with AI?</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-            <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
-            <p className="mb-4">Email: contact@agentiaworld.com</p>
-            <p className="mb-4">Website: www.agentiaworld.com</p>
+            <h3 className="text-2xl font-bold mb-4 text-teal-400">Contact Information</h3>
+            <p className="mb-4 text-gray-300">Email: contact@agentiaworld.com</p>
+            <p className="mb-4 text-gray-300">Website: www.agentiaworld.com</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-purple-500 hover:text-purple-400">
+              <a href="#" className="text-purple-500 hover:text-purple-400 transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fillRule="evenodd"
@@ -32,12 +32,12 @@ export default function Contact() {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-purple-500 hover:text-purple-400">
+              <a href="#" className="text-purple-500 hover:text-purple-400 transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
               </a>
-              <a href="#" className="text-purple-500 hover:text-purple-400">
+              <a href="#" className="text-purple-500 hover:text-purple-400 transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fillRule="evenodd"
@@ -54,11 +54,13 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <Input type="text" placeholder="First Name" />
-            <Input type="text" placeholder="Last Name" />
-            <Input type="email" placeholder="Email Address" />
-            <Textarea placeholder="Your Message" />
-            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
+            <Input type="text" placeholder="First Name" className="bg-gray-800 text-white" />
+            <Input type="text" placeholder="Last Name" className="bg-gray-800 text-white" />
+            <Input type="email" placeholder="Email Address" className="bg-gray-800 text-white" />
+            <Textarea placeholder="Your Message" className="bg-gray-800 text-white" />
+            <Button className="w-full bg-gradient-to-r from-purple-600 to-teal-400 hover:from-purple-700 hover:to-teal-500 text-white glow-effect">
+              Send Message
+            </Button>
           </motion.form>
         </div>
       </div>

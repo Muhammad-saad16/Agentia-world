@@ -19,7 +19,7 @@ export default function Features() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Powered by Advanced AI</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-glow">Powered by Advanced AI</h2>
           <p className="text-xl text-gray-400">Built on cutting-edge neural architectures</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -29,10 +29,10 @@ export default function Features() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 glow-effect-subtle"
             >
-              <feature.icon className="w-12 h-12 text-purple-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <feature.icon className="w-12 h-12 text-purple-500 mb-4 animate-float" />
+              <h3 className="text-xl font-semibold mb-2 text-teal-400">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>
             </motion.div>
           ))}

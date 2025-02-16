@@ -1,57 +1,91 @@
-'use client'
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+"use client"
+
+import type React from "react"
+
+import { useState, useEffect } from "react"
+import { Zap, Shield, TrendingUp } from "lucide-react"
+import dynamic from "next/dynamic"
+import Typewriter from "typewriter-effect"
+
+const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div), { ssr: false })
+const MotionButton = dynamic(() => import("framer-motion").then((mod) => mod.motion.button), { ssr: false })
 
 export default function Hero() {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted) {
+    return null
+  }
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900 to-blue-900 opacity-50"></div>
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{
-            duration: 20,
-            ease: "linear",
-            repeat: Number.POSITIVE_INFINITY,
-            repeatType: "reverse",
-          }}
-          style={{
-            backgroundImage:
-              'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-          }}
-        ></motion.div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 bg-gray-900">
+      <div className="stars"></div>
+      <div className="stars2"></div>
+      <div className="stars3"></div>
+      <div className="galaxy"></div>
+      <div className="shooting-stars"></div>
       <div className="container mx-auto px-4 z-10 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-              Autonomous
-            </span>
+        <MotionDiv initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-600 to-teal-400 rounded-full text-sm font-semibold text-white mb-6 glow-effect">
+            <Typewriter
+              options={{
+                strings: ["Empowering Autonomous Innovation", "Building the Future", "Transforming Business"],
+                autoStart: true,
+                loop: true,
+                delay: 50,
+                deleteSpeed: 30,
+              }}
+            />
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">
+            <span className="text-white">Autonomous</span>
             <br />
-            AI AGENTS
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-              Revolution
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-200 animate-pulse">
+              AI AGENTS
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-muted-foreground">
-            We build self-governing AI agents that learn, adapt, and execute with minimal supervision. Let us take your
-            business into the future of automation and smart solutions.
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-300">
+          <Typewriter
+        options={{
+          strings: [
+            "We build self-governing AI agents that learn, adapt, and execute with minimal supervision.",
+            "Let us take your business into the future of automation and smart solutions.",
+          ],
+          autoStart: true,
+          loop: true,
+          delay: 50, // Adjust speed
+          deleteSpeed: 30,
+        }}
+      />
           </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Get Started
-            </Button>
-            <Button size="lg" variant="outline">
-              Learn More
-            </Button>
+          <div className="flex justify-center space-x-8 mb-12">
+            <Feature icon={Zap} text="Fast Performance" />
+            <Feature icon={Shield} text="Robust Security" />
+            <Feature icon={TrendingUp} text="Scalable Solutions" />
           </div>
-        </motion.div>
+          <MotionButton
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-purple-600 to-teal-400 text-white font-bold py-3 px-8 rounded-full text-lg glow-effect"
+          >
+            Get Started
+          </MotionButton>
+        </MotionDiv>
       </div>
     </section>
+  )
+}
+
+function Feature({ icon: Icon, text }: { icon: React.ElementType; text: string }) {
+  return (
+    <div className="flex flex-col items-center">
+      <Icon className="w-8 h-8 mb-2 text-teal-400 animate-float" />
+      <span className="text-sm text-gray-300">{text}</span>
+    </div>
   )
 }
 

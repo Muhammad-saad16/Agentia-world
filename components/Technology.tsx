@@ -36,7 +36,7 @@ export default function Technology() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Neural Capabilities</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-glow">Neural Capabilities</h2>
           <p className="text-xl text-gray-400">Powered by next-generation artificial intelligence</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -46,11 +46,11 @@ export default function Technology() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 glow-effect-subtle"
             >
               <div className="flex items-center mb-4">
-                <tech.icon className="w-8 h-8 text-purple-500 mr-3" />
-                <h3 className="text-xl font-semibold">{tech.title}</h3>
+                <tech.icon className="w-8 h-8 text-purple-500 mr-3 animate-float" />
+                <h3 className="text-xl font-semibold text-teal-400">{tech.title}</h3>
               </div>
               <p className="text-gray-400">{tech.description}</p>
             </motion.div>
